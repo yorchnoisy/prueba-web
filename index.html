@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f5f0;
+            font-family: 'Georgia', serif;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .images-container {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .images-container img {
+            width: 320px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            color: #2a2a2a;
+            margin-bottom: 32px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            font-size: 1rem;
+            letter-spacing: 0.08em;
+            color: #f5f5f0;
+            background-color: #2a2a2a;
+            border: 2px solid #2a2a2a;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: #2a2a2a;
+        }
+
+        /* ── Historia de Juan ── */
+        .juan-section {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 100px 32px 120px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+
+        .juan-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .juan-section .label {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        .juan-section h2 {
+            font-size: 2.4rem;
+            font-weight: 300;
+            color: #2a2a2a;
+            margin-bottom: 32px;
+            line-height: 1.2;
+        }
+
+        .juan-section p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .divider {
+            width: 48px;
+            height: 1px;
+            background: #2a2a2a;
+            margin: 0 auto 56px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero">
+        <div class="images-container">
+            <img src="casa_en_la_colina_4k.jpg" alt="Casa en la colina" />
+            <img src="cotton_texture_macro.jpg" alt="Textura de algodón" />
+        </div>
+
+        <h1>hola</h1>
+
+        <a class="btn" href="https://www.jetsmart.com/cl/es/" target="_blank" rel="noopener noreferrer">
+            click aquí
+        </a>
+    </div>
+
+    <div class="divider"></div>
+
+    <section class="juan-section" id="juan">
+        <p class="label">Una historia</p>
+        <h2>La vida de Juan</h2>
+
+        <p>
+            Juan nació un martes de octubre en un pueblo pequeño de la Patagonia donde el viento nunca
+            dejaba de soplar. Desde niño supo que quería construir cosas: primero fueron torres de
+            piedras junto al río, después maquetas de madera en el taller de su abuelo y, finalmente,
+            edificios reales que rozaban las nubes.
+        </p>
+
+        <p>
+            A los dieciocho años partió a Santiago con una mochila, ciento veinte mil pesos y la
+            dirección de un hostal garabateada en un papel. Estudió arquitectura de día y lavó platos de
+            noche durante cinco años. Cada fin de mes pegaba una foto de la casa de sus sueños en la
+            pared de su pieza: una casa sobre una colina, rodeada de viento y silencio, exactamente igual
+            al lugar donde creció.
+        </p>
+
+        <p>
+            Con treinta y dos años diseñó su primer proyecto grande: un conjunto de viviendas sociales en
+            Valparaíso. Ganó el concurso sin esperarlo. El jurado destacó "la forma en que la
+            arquitectura respira junto a las personas". Juan lloró en el baño antes de subir al escenario
+            a recibir el reconocimiento.
+        </p>
+
+        <p>
+            Hoy vive en esa colina que siempre imaginó. Por las mañanas toma café mirando el horizonte y
+            sigue dibujando. Dice que el secreto no es construir casas más grandes, sino construir
+            espacios donde la gente se sienta, por primera vez, completamente en casa.
+        </p>
+    </section>
+
+    <script>
+        const section = document.getElementById('juan');
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    section.classList.add('visible');
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.15 }
+        );
+        observer.observe(section);
+    </script>
+
+</body>
+
+</html>
