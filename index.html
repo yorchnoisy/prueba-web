@@ -13,16 +13,60 @@
         }
 
         body {
-            background-color: #f5f5f0;
+            background-color: #2d1654;
             font-family: 'Georgia', serif;
         }
 
+        /* ── Header ── */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 48px;
+            background: rgba(30, 10, 60, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .header-logo {
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #e8d5ff;
+        }
+
+        nav {
+            display: flex;
+            gap: 36px;
+        }
+
+        nav a {
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(232, 213, 255, 0.65);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #e8d5ff;
+        }
+
+        /* ── Hero ── */
         .hero {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding-top: 80px;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.9s ease, transform 0.9s ease;
@@ -33,25 +77,11 @@
             transform: translateY(0);
         }
 
-        .images-container {
-            display: flex;
-            gap: 24px;
-            margin-bottom: 48px;
-        }
-
-        .images-container img {
-            width: 320px;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 4px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-        }
-
         h1 {
             font-size: 4rem;
             font-weight: 300;
             letter-spacing: 0.1em;
-            color: #2a2a2a;
+            color: #e8d5ff;
             margin-bottom: 32px;
         }
 
@@ -60,18 +90,40 @@
             padding: 14px 40px;
             font-size: 1rem;
             letter-spacing: 0.08em;
-            color: #f5f5f0;
-            background-color: #2a2a2a;
-            border: 2px solid #2a2a2a;
+            color: #2d1654;
+            background-color: #e8d5ff;
+            border: 2px solid #e8d5ff;
             border-radius: 2px;
             text-decoration: none;
             transition: background-color 0.3s ease, color 0.3s ease;
             cursor: pointer;
+            margin-bottom: 56px;
         }
 
         .btn:hover {
             background-color: transparent;
-            color: #2a2a2a;
+            color: #e8d5ff;
+        }
+
+        .images-container {
+            display: flex;
+            gap: 24px;
+        }
+
+        .images-container img {
+            width: 320px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ── Divider ── */
+        .divider {
+            width: 48px;
+            height: 1px;
+            background: rgba(232, 213, 255, 0.35);
+            margin: 0 auto 56px;
         }
 
         /* ── Historia de Juan ── */
@@ -93,14 +145,14 @@
             font-size: 0.75rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: #999;
+            color: rgba(232, 213, 255, 0.5);
             margin-bottom: 20px;
         }
 
         .juan-section h2 {
             font-size: 2.4rem;
             font-weight: 300;
-            color: #2a2a2a;
+            color: #e8d5ff;
             margin-bottom: 32px;
             line-height: 1.2;
         }
@@ -108,32 +160,34 @@
         .juan-section p {
             font-size: 1.05rem;
             line-height: 1.9;
-            color: #555;
+            color: rgba(232, 213, 255, 0.75);
             margin-bottom: 20px;
-        }
-
-        .divider {
-            width: 48px;
-            height: 1px;
-            background: #2a2a2a;
-            margin: 0 auto 56px;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="hero">
-        <div class="images-container">
-            <img src="casa_en_la_colina_4k.jpg" alt="Casa en la colina" />
-            <img src="cotton_texture_macro.jpg" alt="Textura de algodón" />
-        </div>
+    <header>
+        <span class="header-logo">Studio</span>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#juan">Historia</a>
+            <a href="https://www.jetsmart.com/cl/es/" target="_blank" rel="noopener noreferrer">JetSmart</a>
+        </nav>
+    </header>
 
+    <div class="hero">
         <h1>hola</h1>
 
         <a class="btn" href="https://www.jetsmart.com/cl/es/" target="_blank" rel="noopener noreferrer">
             click aquí
         </a>
+
+        <div class="images-container">
+            <img src="casa_en_la_colina_4k.jpg" alt="Casa en la colina" />
+            <img src="cotton_texture_macro.jpg" alt="Textura de algodón" />
+        </div>
     </div>
 
     <div class="divider"></div>
